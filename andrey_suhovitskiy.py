@@ -1,11 +1,12 @@
 import sys
 
+BUFFER_SIZE = 2 ** 20
+FROM = "From ".encode()
+
+users_file = {}
+
 
 def process(filename):
-    FROM = "From ".encode()
-    BUFFER_SIZE = 65536 * 16
-    # BUFFER_SIZE = 65536
-    users_file = {}
     current_user = None
     fld = "users/"
 
@@ -27,7 +28,7 @@ def process(filename):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    if len(sys.argv) < 2:
         print("filename is not define")
         exit(1)
     process(sys.argv[1])
